@@ -2,26 +2,29 @@
 import { useForm } from "../customeHook/useForm";
 
 export default function Form() {
-  const [{ username, nic, email, mobile, address }, handleValues,handleSubmit] = useForm({
-    username:'tharindu',
-    nic:'123325',
-    email:'tharin@gmail.com',
-    mobile:'5623425',
-    address:'no,panadura,colombo',
+  const [
+    values,
+    //handleValues,
+    handleSubmit,
+    handleChange,
+    errors,
+  ] = useForm({
+    username: "tharindu",
+    nic: "123325",
+    email: "tharin@gmail.com",
+    mobile: "5623425",
+    address: "no,panadura,colombo",
   });
 
- // const [username, setUsername] = useState("");
+  console.log(errors);
+  // const [username, setUsername] = useState("");
   // const [nic, setNic] = useState("");
   // const [email, setEmail] = useState("");
   // const [number, setNumber] = useState("");
   // const [address, setAddress] = useState("");
 
-  
-  
-  
-  
-
-  
+  //console.log(handleChange);
+  //console.log(handleSubmit)
 
   //console.log(username);
   // console.log(value);
@@ -39,14 +42,15 @@ export default function Form() {
         fontSize: "20px",
       }}
     >
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div style={{ display: "flex", gap: "20px", flexDirection: "column" }}>
         <label>Name</label>
         <input
           type="text"
           name="username"
           placeholder="name"
-          onChange={handleValues}
+          onChange={handleChange}
         />
+        {errors.username?.length > 0 && <p>{errors.username}</p>}
       </div>
       <div style={{ display: "flex", gap: "20px" }}>
         <label>Nic</label>
@@ -54,9 +58,7 @@ export default function Form() {
           name="nic"
           type="text"
           placeholder="Nic"
-          onChange={ handleValues}
-         
-    
+          onChange={handleChange}
         />
       </div>
       <div style={{ display: "flex", gap: "20px" }}>
@@ -65,9 +67,7 @@ export default function Form() {
           type="text"
           name="email"
           placeholder="Email"
-          onChange={ handleValues}
-          
-          
+          onChange={handleChange}
         />
       </div>
       <div style={{ display: "flex", gap: "20px" }}>
@@ -76,10 +76,9 @@ export default function Form() {
           type="text"
           name="mobile"
           placeholder="Mobile"
-          onChange={ handleValues}
-         
-         
+          onChange={handleChange}
         />
+        {errors.mobile?.length > 0 && <p>{errors.mobile}</p>}
       </div>
       <div style={{ display: "flex", gap: "20px" }}>
         <label>Address</label>
@@ -87,9 +86,7 @@ export default function Form() {
           type="text"
           placeholder="Address"
           name="address"
-          onChange={ handleValues}
-   
-   
+          onChange={handleChange}
         />
       </div>
       <div style={{ marginTop: "15px", padding: "10px" }}>
