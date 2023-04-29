@@ -2,7 +2,13 @@
 import { useForm } from "../customeHook/useForm";
 
 export default function Form() {
-  const [value, handleValues] = useForm();
+  const [{ username, nic, email, mobile, address }, handleValues,handleSubmit] = useForm({
+    username:'tharindu',
+    nic:'123325',
+    email:'tharin@gmail.com',
+    mobile:'5623425',
+    address:'no,panadura,colombo',
+  });
 
  // const [username, setUsername] = useState("");
   // const [nic, setNic] = useState("");
@@ -10,12 +16,12 @@ export default function Form() {
   // const [number, setNumber] = useState("");
   // const [address, setAddress] = useState("");
 
-  const handleSubmit = () => {
-   // const user = { username, nic, email, number, address };
-    //console.log(user);
-    console.log(value);
+  
+  
+  
+  
 
-  };
+  
 
   //console.log(username);
   // console.log(value);
